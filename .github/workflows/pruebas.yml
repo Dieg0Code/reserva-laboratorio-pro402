@@ -1,0 +1,42 @@
+name: Pruebas
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  estaticos:
+    name: Controles estáticos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run pyrefly check
+
+  pytest:
+    name: Pruebas de Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+      - run: uv sync --locked
+      - run: uv run pytest -q
+
+  extremo-a-extremo:
+    name: Pruebas de extremo a extremo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: uv sync --locked
+      - run: npm ci
+        working-directory: e2e
+      - run: npx playwright install --with-deps
+        working-directory: e2e
+      - run: npx playwright test
+        working-directory: e2e
