@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v10.2.0
       - run: uv sync --locked
-      - run: uv run pytest -q -rxX
+      - run: uv run pytest -q -rfExX
       - name: Matriz de trazabilidad
         if: always()
         run: |
