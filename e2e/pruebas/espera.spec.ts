@@ -22,3 +22,11 @@ test("tras reservar, el bloque 4 aparece tomado · espera una condición", async
   const ficha = page.getByRole("listitem").filter({ hasText: "Bloque 4" });
   await expect(ficha).toContainText("Tomado");
 });
+
+test("tras una reserva confirmada, el formulario queda vacío", async ({ page }) => {
+  await reservarBloque4(page);
+
+  await page.waitForTimeout(300);
+  const nombre = await page.getByLabel("Nombre").inputValue();
+  expect(nombre).toBe("");
+});
