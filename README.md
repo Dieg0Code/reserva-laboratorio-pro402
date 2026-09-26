@@ -86,4 +86,7 @@ En integración continua, las pruebas de extremo a extremo se reintentan hasta d
 que falla y después pasa al reintentarla se informa como **inestable** (*flaky*), y el pipeline
 falla igual: una prueba inestable no se acepta, se corrige.
 
+La rama `main` está protegida: todo cambio entra por un `pull request`, y solo se puede integrar si
+los cuatro trabajos del pipeline están en verde.
+
 Los resultados se ven en la pestaña **Actions** del repositorio.
