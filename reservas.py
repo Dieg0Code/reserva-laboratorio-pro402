@@ -23,4 +23,4 @@ def puede_cancelar(inicio_bloque: datetime, ahora: datetime) -> bool:
 
 
 def comprobante(nombre: str, rut: str, correo: str, bloque: int) -> str:
-    return f"{nombre} | {rut} | {correo} | bloque {bloque}"
+    return f"{nombre} | {rut} | bloque {bloque}"
