@@ -22,6 +22,16 @@ def test_reserva_aceptada_responde_201(base_de_datos_de_prueba: Path) -> None:
     assert respuesta.status_code == 201
 
 
+@pytest.mark.requisito("RF-06")
+def test_el_comprobante_trae_nombre_rut_correo_y_bloque(base_de_datos_de_prueba: Path) -> None:
+    comprobante = cliente.post("/reservas", json=SOLICITUD).json()["comprobante"]
+
+    assert SOLICITUD["nombre"] in comprobante
+    assert SOLICITUD["rut"] in comprobante
+    assert SOLICITUD["correo_electronico"] in comprobante
+    assert f"bloque {SOLICITUD['bloque']}" in comprobante
+
+
 @pytest.mark.requisito("RF-01")
 def test_bloque_fuera_de_jornada_responde_409(base_de_datos_de_prueba: Path) -> None:
     respuesta = cliente.post("/reservas", json=SOLICITUD | {"bloque": 12})
