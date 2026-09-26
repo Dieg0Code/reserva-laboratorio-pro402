@@ -82,4 +82,8 @@ públicas de vulnerabilidades conocidas. Se ejecuta ante cada cambio y, además,
 08:00 hora de Chile, porque una vulnerabilidad nueva se puede publicar sin que nadie toque el
 repositorio.
 
+En integración continua, las pruebas de extremo a extremo se reintentan hasta dos veces. Una prueba
+que falla y después pasa al reintentarla se informa como **inestable** (*flaky*), y el pipeline
+falla igual: una prueba inestable no se acepta, se corrige.
+
 Los resultados se ven en la pestaña **Actions** del repositorio.
