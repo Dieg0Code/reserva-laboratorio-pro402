@@ -37,7 +37,9 @@ formulario.addEventListener("submit", async (evento) => {
       cargarBloques();
     } else {
       mensaje.className = "mensaje error";
-      mensaje.textContent = cuerpo.detail;
+      mensaje.textContent = Array.isArray(cuerpo.detail)
+        ? cuerpo.detail.map(textoDelError).join(" ")
+        : cuerpo.detail;
     }
   } catch {
     mensaje.className = "mensaje error";
@@ -46,5 +48,12 @@ formulario.addEventListener("submit", async (evento) => {
     boton.disabled = false;
   }
 });
+
+function textoDelError(error) {
+  const nombreDelCampo = error.loc.at(-1);
+  const campo = formulario.elements.namedItem(nombreDelCampo);
+  const etiqueta = campo?.labels?.[0]?.textContent ?? nombreDelCampo;
+  return `Revisa el campo ${etiqueta}.`;
+}
 
 cargarBloques();
