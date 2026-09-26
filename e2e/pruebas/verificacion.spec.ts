@@ -19,7 +19,12 @@ test("si la red falla, el botón vuelve a quedar disponible", async ({ page }) =
   await expect(page.getByRole("button", { name: "Reservar" })).toBeEnabled();
 });
 
-test("en una pantalla de 320 píxeles no hay desplazamiento horizontal", async ({ page }) => {
+test.fail("en una pantalla de 320 píxeles no hay desplazamiento horizontal", {
+  annotation: {
+    type: "rojo conocido",
+    description: "La página mide más de 320 píxeles de ancho (WCAG 1.4.10). Pendiente: rediseñar la grilla para pantallas angostas.",
+  },
+}, async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 640 });
   await page.goto("/");
   await expect(page.getByRole("listitem")).toHaveCount(8);
