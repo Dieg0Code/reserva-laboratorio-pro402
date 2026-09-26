@@ -1,0 +1,20 @@
+name: Auditoría de dependencias
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 8 * * *"
+      timezone: "America/Santiago"
+  workflow_dispatch:
+
+jobs:
+  pip-audit:
+    name: Vulnerabilidades conocidas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+      - run: uv sync --locked
+      - run: uv export --no-dev --format requirements-txt --no-hashes -o req-prod.txt
+      - run: uv run pip-audit -r req-prod.txt
