@@ -68,7 +68,6 @@ obligar a quitar la marca.
 | Prueba | Qué muestra | Qué decisión falta |
 |---|---|---|
 | `test_seguridad.py::test_otra_persona_no_puede_agotar_la_cuota_de_ana` | La API acepta cualquier RUT sin comprobar quién lo escribe, así que otra persona puede gastar la cuota de Ana | Cómo se identifican las personas |
-| `e2e/pruebas/reserva.spec.ts` · «si falta un dato, la pantalla dice cuál corregir» | La pantalla muestra `[object Object]` en lugar de decir qué campo falta | Qué dice el mensaje de cada campo |
 | `e2e/pruebas/verificacion.spec.ts` · «en una pantalla de 320 píxeles no hay desplazamiento horizontal» | La página mide más de 320 píxeles de ancho y obliga a desplazarse hacia los lados (WCAG 1.4.10) | Cómo se rediseña la grilla para pantallas angostas |
 
 ## Integración continua
