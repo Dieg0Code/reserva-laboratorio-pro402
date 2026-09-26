@@ -7,7 +7,7 @@ ANTICIPACION_CANCELACION = timedelta(hours=2)
 
 
 def bloque_valido(bloque: int) -> bool:
-    return BLOQUE_MIN <= bloque <= BLOQUE_MAX
+    return BLOQUE_MIN <= bloque < BLOQUE_MAX
 
 
 def puede_reservar(reservas_de_la_semana: int, bloque: int, tomado: bool) -> bool:
