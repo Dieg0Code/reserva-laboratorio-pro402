@@ -1,0 +1,13 @@
+# Entornos e instalaciones: se regeneran con uv sync y npm ci
+.venv/
+__pycache__/
+e2e/node_modules/
+
+# Resultados de ejecucion
+.pytest_cache/
+.ruff_cache/
+e2e/test-results/
+e2e/playwright-report/
+
+# Bases de datos locales: el sistema las crea al arrancar
+*.db

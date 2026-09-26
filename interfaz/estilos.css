@@ -1,0 +1,134 @@
+:root {
+  --fondo: #f4f5f7;
+  --tinta: #1d2a3a;
+  --suave: #5b6878;
+  --marca: #1f3a5f;
+  --libre: #2e7d4f;
+  --tomado: #5b6878;
+  --error: #b3181e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fondo);
+  color: var(--tinta);
+}
+
+.barra {
+  background: var(--marca);
+  color: white;
+  padding: 28px 40px;
+}
+
+.barra h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+}
+
+.barra p {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.tarjeta {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.06);
+}
+
+.tarjeta h2 {
+  margin: 0 0 18px;
+  font-size: 18px;
+}
+
+label {
+  display: block;
+  margin: 12px 0 4px;
+  font-size: 14px;
+  color: var(--suave);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d4d9df;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--marca);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.mensaje {
+  min-height: 24px;
+  margin: 16px 0 0;
+  font-size: 15px;
+}
+
+.mensaje.exito {
+  color: var(--libre);
+}
+
+.mensaje.error {
+  color: var(--error);
+}
+
+.grilla {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ficha {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 8px;
+  color: white;
+}
+
+.ficha.libre {
+  background: var(--libre);
+}
+
+.ficha.tomada {
+  background: var(--tomado);
+}
+
+.ficha .estado {
+  font-weight: 600;
+}

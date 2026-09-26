@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reservas · Laboratorio</title>
+    <link rel="stylesheet" href="/interfaz/estilos.css" />
+  </head>
+  <body>
+    <header class="barra">
+      <h1>Reservas del laboratorio</h1>
+      <p>Elige un bloque libre de la jornada y resérvalo para tu grupo.</p>
+    </header>
+
+    <main class="contenido">
+      <section class="tarjeta">
+        <h2>Nueva reserva</h2>
+        <form id="formulario">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" autocomplete="name" />
+
+          <label for="rut">RUT</label>
+          <input id="rut" name="rut" placeholder="12.345.678-9" />
+
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" name="correo_electronico" type="email" />
+
+          <div class="fila">
+            <div>
+              <label for="bloque">Bloque</label>
+              <select id="bloque" name="bloque">
+                <option value="1">Bloque 1</option>
+                <option value="2">Bloque 2</option>
+                <option value="3">Bloque 3</option>
+                <option value="4">Bloque 4</option>
+                <option value="5">Bloque 5</option>
+                <option value="6">Bloque 6</option>
+                <option value="7">Bloque 7</option>
+                <option value="8">Bloque 8</option>
+              </select>
+            </div>
+            <div>
+              <label for="personas">Personas</label>
+              <input id="personas" name="personas" type="number" min="1" max="30" />
+            </div>
+          </div>
+
+          <button type="submit">Reservar</button>
+        </form>
+        <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="tarjeta">
+        <h2>Bloques de hoy</h2>
+        <ul id="bloques" class="grilla" aria-label="Estado de los bloques"></ul>
+      </section>
+    </main>
+
+    <script src="/interfaz/app.js"></script>
+  </body>
+</html>
